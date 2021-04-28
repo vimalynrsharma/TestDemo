@@ -1,0 +1,81 @@
+<div class="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand"><img src="../../../../../assets/images/logo.png"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                        <ul class="navbar-nav m-auto center-icons">
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-home" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" routerLink="/friend"><i class="fa fa-user-plus"
+                                        aria-hidden="true"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-bell" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-users" aria-hidden="true"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto profile-navbar">
+                            <li class="nav-item">
+                                <a class="nav-link"><i class="fa fa-comments" aria-hidden="true"></i></a>
+                            </li>
+                            <li [ngClass]="dropDownNavMenu" style="cursor: pointer;" (click)="showNavMenu()">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="http://107.180.75.184:3002/{{this.userDetails.imageURL.thumbnail}}">
+                                </a>
+                                <div [ngClass]="dropDownNavMenuChild" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item"><i class="fa fa-cog" aria-hidden="true"></i>
+                                        Settings <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+                                    <a class="dropdown-item"><i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        Help <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" (click)="logout()"><i class="fa fa-cog"
+                                            aria-hidden="true"></i> Log
+                                        Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar">
+    <a (click)="navigateToProfile()"><img src="http://107.180.75.184:3002/{{this.userDetails.imageURL.thumbnail}}"> {{
+        this.userDetails.fullName}}</a>
+    <a><span class="icons"><i class="fa fa-users" aria-hidden="true"></i></span> Groups</a>
+    <a class="fav"><span class="icons"><i class="fa fa-star" aria-hidden="true"></i></span> Favourite</a>
+</div>
+<div class="main-body">
+    <router-outlet></router-outlet>
+    <!-- <footer>
+        <div class="footer-section">
+            <div class="container-fluid rem-pad">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="footer-bottom text-center">
+                            <p>Loream Ipsum 2012 - 2016. All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> -->
